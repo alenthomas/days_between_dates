@@ -30,6 +30,5 @@ if __name__ == "__main__":
     print("days:", find(23, 4, 2017, 24, 8, 2017))
     print("days:", find(26, 8, 1993, 11, 1, 2021))
     print("days:", find(26, 8, 1993, 15, 6, 2017))
-    print("days:", find(23, 4, 2017, 24, 8, 2017))
     print("days:", find(14, 1, 2016, 28, 4, 2017))
     print("avg time: {:.6f}".format(time.time() - start_time))
