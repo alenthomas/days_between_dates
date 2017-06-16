@@ -16,10 +16,12 @@ int isleap(int year) {
 }
 
 int days_in_month(int month, int year){
-  int val = isleap(year);
+  int val = 0;
+  if(month == 2)
+    val = isleap(year);
   if(val == 1){
     return _leap_months[month-1];
-      } else {
+  } else {
     return _months[month-1];
   }
 }

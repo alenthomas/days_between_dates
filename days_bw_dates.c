@@ -7,12 +7,14 @@ int _months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 int *total_months(int m1, int y1, int m2, int y2) {
   int years, first, last, rest;
   static int result[2];
+
   years = y2 - y1;
   first = 12 - m1;
   last = 12 - m2;
   rest = years * 12;
   result[0] = m1 + 1;
   result[1] = first - last + rest - 1;
+
   return result;
 }
 
@@ -29,10 +31,13 @@ int isleap(int year) {
 
 
 int days_in_month(int month, int year){
-  int val = isleap(year);
+  int val = 0;
+
+  if(month == 2)
+    val = isleap(year);
   if(val == 1){
     return _leap_months[month-1];
-      } else {
+  } else {
     return _months[month-1];
   }
 }
@@ -40,6 +45,7 @@ int days_in_month(int month, int year){
 int days_bw_dates(int d1, int m1, int y1, int d2, int m2, int y2) {
   int total, count, initial_month_days, month, no_months;
   int *p;
+
   total = 0;
   count = 0;
   initial_month_days = days_in_month(m1, y1);

@@ -7,7 +7,10 @@ _months = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31,
            9:30, 10:31, 11:30, 12:31}
 
 def days_in_month(month, year):
-    if calendar.isleap(year):
+    leap = False
+    if month == 2:
+        leap = calendar.isleap(year)
+    if leap:
         return _leap_months[month]
     else:
         return _months[month]
